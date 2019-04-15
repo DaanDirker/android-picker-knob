@@ -12,6 +12,7 @@
         android:id="@+id/picker_knob"
         android:layout_marginTop="16dp"
         android:color="@android:color/holo_green_dark"
+        app:picker_dash_color="@android:color/holo_blue_bright"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         app:picker_min_value="-25"

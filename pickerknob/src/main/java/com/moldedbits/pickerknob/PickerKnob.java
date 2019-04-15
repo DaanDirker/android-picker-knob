@@ -188,18 +188,15 @@ public class PickerKnob extends View {
             int[] attrsArray = new int[]{
                     android.R.attr.color,
             };
-            TypedArray a = context.getTheme().obtainStyledAttributes(attrs, attrsArray, 0, 0);
-            mLineColor = a.getColor(0, Color.GREEN);
-            mPaint.setColor(mLineColor);
-            a.recycle();
 
-            a = context.getTheme().obtainStyledAttributes(attrs, R.styleable.PickerKnob, 0, 0);
+            TypedArray a = context.getTheme().obtainStyledAttributes(attrs, R.styleable.PickerKnob, 0, 0);
             mMinValue = a.getInt(R.styleable.PickerKnob_picker_min_value, mMinValue);
             mMaxValue = a.getInt(R.styleable.PickerKnob_picker_max_value, mMaxValue);
             mTextSize = a.getDimensionPixelSize(R.styleable.PickerKnob_picker_text_size, 12);
             mTextPadding = a.getDimensionPixelSize(R.styleable.PickerKnob_picker_text_padding, 10);
             mDashGap = a.getDimensionPixelSize(R.styleable.PickerKnob_picker_dash_gap, 20);
             mTextColor = a.getColor(R.styleable.PickerKnob_picker_text_color, Color.BLACK);
+            mLineColor = a.getColor(R.styleable.PickerKnob_picker_dash_color, Color.GREEN);
             mDashCount = a.getInteger(R.styleable.PickerKnob_picker_dash_count, mDashCount);
             mDeceleration = a.getFloat(R.styleable.PickerKnob_picker_friction, mDeceleration);
             mStartValue = a.getInt(R.styleable.PickerKnob_picker_start_value,
@@ -207,6 +204,7 @@ public class PickerKnob extends View {
             a.recycle();
         }
         mPaint.setTextSize(mTextSize);
+        mPaint.setColor(mLineColor);
 
         mViewHeight = (int) TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_DIP, MIN_HEIGHT_IN_DP,
                 context.getResources().getDisplayMetrics()) + mTextSize;
